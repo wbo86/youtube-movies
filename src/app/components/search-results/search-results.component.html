@@ -1,0 +1,21 @@
+<div class="mt-md-5">
+    <div class="d-flex justify-content-end buttons-wrapper" *ngIf="youTubeService.moviesList.length">
+        <div class="paginator-wrapper">
+            <button type="button" class="btn btn-outline-primary mr-1" (click)="youTubeService.getPrevPageResults()">Prev page</button>
+            <button type="button" class="btn btn-outline-primary" (click)="youTubeService.getNextPageResults()">Next page</button>
+        </div>
+        <button type="button" class="btn btn-outline-secondary" (click)="toggleView()">Toggle view</button>
+    </div>
+    <div class="phrase" *ngIf="youTubeService.moviesList.length">
+        Results for phrase: <span>{{ getCurrentPhrase() }}</span>
+    </div>
+    <div class="phrase" *ngIf="youTubeService.noResults">
+        No results for phrase: <span>{{ getCurrentPhrase() }}</span>
+    </div>
+    <div class="list-group mt-5" [ngClass]="view ? 'list' : 'grid'">
+        <a class="list-group-item list-group-item-action elem" *ngFor="let item of youTubeService.moviesList" (click)="watchMovie(item.id.videoId)">
+            <img alt="thumbnail" [src]="item.snippet.thumbnails.default.url">
+            <h5 class="d-flex">{{ item.snippet.title }}</h5>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-center mt-5">
+    <div class="input-wrapper mr-2" (appClickOutside)="showHistory = false">
+        <input 
+            class="form-control"
+            #searchInput 
+            type="text"
+            placeholder="Search"
+            (click)="toggleHistory()" 
+            (keyup)="toggleHistory()" 
+            (keydown.enter)="search(searchInput.value)"
+        >
+        <div class="dropdown-menu" *ngIf="showHistory && getSearchHistoryItems().length">
+            <div class="dropdown-item" *ngFor="let item of getSearchHistoryItems()">
+                <div (click)="searchFromHistory(item)">{{ item }}</div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-outline-success mr-2" (click)="search(searchInput.value)">Search</button>
+    <button type="button" class="btn btn-outline-danger" (click)="clear()">Clear</button>
+</div>

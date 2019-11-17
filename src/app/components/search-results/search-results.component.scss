@@ -1,0 +1,68 @@
+@import "~bootstrap-scss/bootstrap";
+
+.buttons-wrapper {
+    position: relative;
+}
+.paginator-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 204px;
+}
+.elem:hover {
+    cursor: pointer;
+}
+.phrase {
+    font-size: 34px;
+    margin: 10px 0;
+    span {
+        font-weight: bold;
+    }
+}
+.list-group {
+    &.list {
+        .elem {
+            display: flex;
+            h5 {
+                align-items: center;
+                margin-left: 10px;
+            }
+        }
+    }
+    &.grid {
+        flex-flow: row wrap;
+        .elem {
+            text-align: center;
+            max-width: 20%;
+            h5 {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+@include media-breakpoint-down(lg) {
+    .list-group.grid .elem {
+        max-width: 25%;
+    }
+}
+@include media-breakpoint-down(md) {
+    .list-group.grid .elem {
+        max-width: 50%;
+    }
+}
+@include media-breakpoint-down(sm) {
+    .list-group.grid .elem {
+        max-width: 100%;
+    }
+}
+@include media-breakpoint-down(xs) {
+    .buttons-wrapper {
+        margin-top: 10px;
+        flex-flow: column;
+    }
+    .paginator-wrapper {
+        position: initial;
+        margin-bottom: 10px;
+    }
+}

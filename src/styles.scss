@@ -1,0 +1,11 @@
+@import "~bootstrap-scss/bootstrap";
+
+body {
+    & * {
+        font-family: Lato;
+    }
+}
+
+.btn {
+    min-width: 100px;
+}

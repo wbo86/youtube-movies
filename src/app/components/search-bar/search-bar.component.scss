@@ -1,0 +1,26 @@
+@import "~bootstrap-scss/bootstrap";
+
+.input-wrapper {
+    position: relative;
+}
+.dropdown-menu {
+    display: block;
+    width: 100%;
+}
+.dropdown-item {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    .d-flex.justify-content-center.mt-5 {
+        flex-flow: column;
+        > * + * {
+            margin-top: 10px;
+        }
+    }
+    .input-wrapper.mr-2, .btn.btn-outline-success.mr-2 {
+        margin-right: 0 !important;
+    }
+}
